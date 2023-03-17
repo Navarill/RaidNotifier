@@ -4,11 +4,8 @@
 ## Version: 2.24.1.N1
 ## APIVersion: 101037
 ## SavedVariables: RNVars RN_DEBUG_LOG
-## DependsOn: LibAddonMenu-2.0>=28 LibUnits2
+## DependsOn: LibAddonMenu-2.0>=28 LibCSA LibUnits2
 ## OptionalDependsOn: LibGroupSocket
-
-libs/LibStub/LibStub.lua
-libs/LibCSA/LibCSA.lua
 
 UltimateHandler.lua
 TrialAetherianArchive.lua
