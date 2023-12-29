@@ -1,5 +1,5 @@
 ## Title: LibCSA
-## APIVersion: 101037
+## APIVersion: 101040
 ## Author: Kyoma
 ## AddOnVersion: 21
 ## IsLibrary: true
