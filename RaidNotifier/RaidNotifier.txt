@@ -7,8 +7,6 @@
 ## DependsOn: LibAddonMenu-2.0>=28 LibCSA LibUnits2
 ## OptionalDependsOn: LibGroupSocket
 
-libs/LibStub/LibStub.lua
-
 UltimateHandler.lua
 TrialAetherianArchive.lua
 TrialAsylumSanctorium.lua
