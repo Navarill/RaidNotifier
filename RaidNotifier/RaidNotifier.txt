@@ -1,6 +1,6 @@
-## Title: |cEFEBBERaidNotifier|r
+## Title: RaidNotifier
 ## Description: Displays on-screen notifications on different events during trials.
-## Author: |c009ad6Kyoma, Memus, Woeler, silentgecko|r
+## Author: Kyoma, Memus, Woeler, silentgecko
 ## Version: 2.28.1
 ## APIVersion: 101041 101042
 ## SavedVariables: RNVars RN_DEBUG_LOG
