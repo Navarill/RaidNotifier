@@ -2,10 +2,10 @@
 ## Description: Displays on-screen notifications on different events during trials.
 ## Author: Kyoma, Memus, Woeler, silentgecko
 ## Version: 2.28.1
-## APIVersion: 101041 101042
+## APIVersion: 101046
 ## SavedVariables: RNVars RN_DEBUG_LOG
-## DependsOn: LibAddonMenu-2.0>=28 LibCSA LibUnits2
-## OptionalDependsOn: LibGroupSocket
+## DependsOn: LibAddonMenu-2.0>=40 LibCSA LibUnits2
+## OptionalDependsOn: LibGroupSocket>=91
 
 UltimateHandler.lua
 TrialAetherianArchive.lua
