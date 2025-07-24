@@ -2,7 +2,7 @@
 ## Description: Displays on-screen notifications on different events during trials.
 ## Author: Kyoma, Memus, Woeler, silentgecko
 ## Version: 2.28.1
-## APIVersion: 101046
+## APIVersion: 101046 101047
 ## SavedVariables: RNVars RN_DEBUG_LOG
 ## DependsOn: LibAddonMenu-2.0>=40 LibCSA LibUnits2
 ## OptionalDependsOn: LibGroupSocket>=91
