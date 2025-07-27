@@ -1,11 +1,14 @@
 RaidNotifier = RaidNotifier or {}
 RaidNotifier.Util = RaidNotifier.Util or {}
+local LCSA = LibCSA
+local LGS = LibGroupSocket
+local LUNIT = LibUnits2
 
 local RaidNotifier = RaidNotifier
 
 RaidNotifier.Name           = "RaidNotifier"
 RaidNotifier.DisplayName    = "Raid Notifier"
-RaidNotifier.Version        = "2.28.1"
+RaidNotifier.Version        = "2.30"
 RaidNotifier.Author         = "|c009ad6Kyoma, Memus, Woeler, silentgecko|r"
 RaidNotifier.SV_Name        = "RNVars"
 RaidNotifier.SV_Version     = 4
@@ -25,6 +28,7 @@ RAID_SUNSPIRE               = 11
 RAID_KYNES_AEGIS            = 12
 RAID_ROCKGROVE              = 13
 RAID_DREADSAIL_REEF         = 14
+RAID_SANITY_EDGE            = 15
 
 -- Debugging
 local function p() end
@@ -128,7 +132,6 @@ do ---------------------------------
 	end
 
 	local CSA  = CENTER_SCREEN_ANNOUNCE
-	local LCSA = LibStub:GetLibrary("LibCSA")
 
 	function RaidNotifier:AddAnnouncement(text, category, setting, interval)
 
@@ -265,8 +268,10 @@ do ----------------------
 
 	local window = nil
 
-	local LGS = LibStub("LibGroupSocket", true)
-	local ultimateHandler = LGS and LGS:GetHandler(LGS.MESSAGE_TYPE_ULTIMATE)
+	local ultimateHandler
+	if LibGroupSocket then
+		ultimateHandler = LGS:GetHandler(LGS.MESSAGE_TYPE_ULTIMATE)
+	end
 	RNUltimateHandler = ultimateHandler -- debug
 	local ultimateAbilityId = 40223  -- Aggressive Warhorn Rank IV
 	local ultimateGroupId   = 29     -- hardcoded for now
@@ -584,6 +589,7 @@ do ----------------------
 		[RAID_KYNES_AEGIS]           = 1196,
 		[RAID_ROCKGROVE]             = 1263,
 		[RAID_DREADSAIL_REEF]        = 1344,
+		[RAID_SANITY_EDGE]           = 1427,
 	}
 
 	local RaidZones = {}
@@ -872,7 +878,6 @@ do ----------------------
 		CALLBACK_MANAGER:RegisterCallback("OnWorldMapChanged", OnZoneChanged) -- might as well listen to this since that code is executed anyways
 
 		-- Change vitality bonus announcement to not conflict with our own
-		local LCSA = LibStub:GetLibrary("LibCSA")
 		LCSA:HookHandler(EVENT_RAID_REVIVE_COUNTER_UPDATE, function(messageParams, currentCount, countDelta)
 			if messageParams then
 				messageParams:SetCategory(CSA_CATEGORY_SMALL_TEXT)
@@ -912,7 +917,6 @@ end
 
 do ---------------------------
 
-	local LUNIT = LibUnits2
 	local Util  = RaidNotifier.Util
 
 	function RaidNotifier.UnitIdToString(id)
@@ -940,6 +944,7 @@ do ---------------------------
 	RaidNotifier.KA = RaidNotifier.KA or {}
 	RaidNotifier.RG = RaidNotifier.RG or {}
 	RaidNotifier.DSR = RaidNotifier.DSR or {}
+	RaidNotifier.SE = RaidNotifier.SE or {}
 
 	RaidNotifier.Trial =
 	{
@@ -956,6 +961,7 @@ do ---------------------------
 		[RAID_KYNES_AEGIS]           = RaidNotifier.KA,
 		[RAID_ROCKGROVE]             = RaidNotifier.RG,
 		[RAID_DREADSAIL_REEF]        = RaidNotifier.DSR,
+		[RAID_SANITY_EDGE]           = RaidNotifier.SE,
 	}
 
 	-------------------
