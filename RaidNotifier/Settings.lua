@@ -6,6 +6,8 @@ local tinsert	 			= table.insert
 local tremove				= table.remove
 local tsort				= table.sort
 
+local LAM = LibAddonMenu2
+
 -- Constants for easy reading
 RAID_HEL_RA_CITADEL         = 1
 RAID_AETHERIAN_ARCHIVE      = 2
@@ -21,6 +23,7 @@ RAID_SUNSPIRE				= 11
 RAID_KYNES_AEGIS			= 12
 RAID_ROCKGROVE              = 13
 RAID_DREADSAIL_REEF         = 14
+RAID_SANITY_EDGE            = 15
 
 -- ------------------
 -- DEFAULT SETTINGS
@@ -318,6 +321,7 @@ do ------------------
 			oaxiltso_annihilator_cinder_cleave = 0, -- "Off"
 			bahsei_embrace_of_death = 0, -- "Off"
 			bahsei_cone_direction = false,
+			bahsei_portal_number = false,
 			xalvakka_unstable_charge = false,
 		},
 		dreadsailReef = {
@@ -330,6 +334,11 @@ do ------------------
 			reef_guardian_reef_heart = false,
 			reef_guardian_reef_heart_result = false,
 			taleria_rapid_deluge = 0, -- "Off"
+		},
+		sanityEdge = {
+			chimera_sunburst = false,
+			ansuul_sunburst = 0, -- "Off"
+			ansuul_poisoned_mind = 0, -- "Off"
 		},
 		dbg = {
 			enable = false,
@@ -452,7 +461,6 @@ function RaidNotifier:CreateSettingsMenu()
 
 	self:TryUpgradeSettings()
 
-	local LAM = LibAddonMenu2
 	self.panelData = {
 		type = "panel",
 		name = self.DisplayName,
@@ -578,7 +586,12 @@ function RaidNotifier:CreateSettingsMenu()
 			sulxan_reaver_sundering_strike = off_self_all,
 			oaxiltso_noxious_sludge = off_self_all,
 			oaxiltso_annihilator_cinder_cleave = off_self_all,
-			bahsei_embrace_of_death = off_self_all,
+			bahsei_embrace_of_death = {
+				L.Settings_General_Choices_Off,
+				L.Settings_General_Choices_Self,
+				L.Settings_General_Choices_All,
+				L.Settings_General_Choices_SelfAndTanks,
+			},
 		},
 		dreadsailReef = {
 			dome_type = {
@@ -595,6 +608,10 @@ function RaidNotifier:CreateSettingsMenu()
 			},
 			brothers_heavy_attack = off_self_all,
 			taleria_rapid_deluge = off_self_all,
+		},
+		sanityEdge = {
+			ansuul_sunburst = off_self_all,
+			ansuul_poisoned_mind = off_self_all,
 		},
 	}
 
@@ -1740,13 +1757,18 @@ function RaidNotifier:CreateSettingsMenu()
 		name = L.Settings_Rockgrove_Embrace_Of_Death,
 		tooltip = L.Settings_Rockgrove_Embrace_Of_Death_TT,
 		choices = choices.rockgrove.bahsei_embrace_of_death,
-		choicesTooltips = { false, false, L.Settings_Rockgrove_Embrace_Of_Death_TT_All },
+		choicesTooltips = { false, false, L.Settings_Rockgrove_Embrace_Of_Death_TT_All, false },
 	}, "rockgrove", "bahsei_embrace_of_death")
 	MakeControlEntry({
 		type = "checkbox",
 		name = L.Settings_Rockgrove_Bahsei_Cone_Direction,
 		tooltip = L.Settings_Rockgrove_Bahsei_Cone_Direction_TT,
 	}, "rockgrove", "bahsei_cone_direction")
+	MakeControlEntry({
+		type = "checkbox",
+		name = L.Settings_Rockgrove_Bahsei_Portal_Number,
+		tooltip = L.Settings_Rockgrove_Bahsei_Portal_Number_TT,
+	}, "rockgrove", "bahsei_portal_number")
 	MakeControlEntry({
 		type = "checkbox",
 		name = L.Settings_Rockgrove_Xalvakka_Unstable_Charge,
@@ -1822,6 +1844,27 @@ function RaidNotifier:CreateSettingsMenu()
 		tooltip = L.Settings_DreadsailReef_Rapid_Deluge_TT,
 		choices = choices.dreadsailReef.taleria_rapid_deluge,
 	}, "dreadsailReef", "taleria_rapid_deluge")
+	subTable = nil --end submenu
+
+	-- Sanity's Edge
+	MakeSubmenu(L.Settings_SanityEdge_Header, RaidNotifier:GetRaidDescription(RAID_SANITY_EDGE))
+	MakeControlEntry({
+		type = "checkbox",
+		name = L.Settings_SanityEdge_Chimera_Sunburst,
+		tooltip = L.Settings_SanityEdge_Chimera_Sunburst_TT,
+	}, "sanityEdge", "chimera_sunburst")
+	MakeControlEntry({
+		type = "dropdown",
+		name = L.Settings_SanityEdge_Ansuul_Sunburst,
+		tooltip = L.Settings_SanityEdge_Ansuul_Sunburst_TT,
+		choices = choices.sanityEdge.ansuul_sunburst,
+	}, "sanityEdge", "ansuul_sunburst")
+    MakeControlEntry({
+        type = "dropdown",
+        name = L.Settings_SanityEdge_Ansuul_Poisoned_Mind,
+        tooltip = L.Settings_SanityEdge_Ansuul_Poisoned_Mind_TT,
+        choices = choices.sanityEdge.ansuul_poisoned_mind,
+    }, "sanityEdge", "ansuul_poisoned_mind")
 	subTable = nil --end submenu
 
 	MakeControlEntry({

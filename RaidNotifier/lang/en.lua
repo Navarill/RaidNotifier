@@ -46,6 +46,7 @@ L.Settings_General_Choices_500ms                    = "0.5s"
 L.Settings_General_Choices_200ms                    = "0.2s"
 L.Settings_General_Choices_Custom                   = "Custom"
 L.Settings_General_Choices_Custom_Announcement      = "Custom (movable)"
+L.Settings_General_Choices_SelfAndTanks             = "Self and tanks"
 L.Settings_General_Choices_OnlyChaurusTotem         = "Only Chaurus" -- Specific for Kyne's Aegis
 L.Settings_DreadsailReef_Choices_OnlyFireDome       = "Only Fire Dome"
 L.Settings_DreadsailReef_Choices_OnlyIceDome        = "Only Ice Dome"
@@ -615,6 +616,8 @@ L.Settings_Rockgrove_Embrace_Of_Death_TT           = "Alerts you when someone go
 L.Settings_Rockgrove_Embrace_Of_Death_TT_All       = "|cFF0000WARNING!|r If your group will get too much curses your screen may be fully covered in countdowns for a duration of those curses! We're working on ways to improve this notification."
 L.Settings_Rockgrove_Bahsei_Cone_Direction         = "Flame-Herald Bahsei HM: Cone direction"
 L.Settings_Rockgrove_Bahsei_Cone_Direction_TT      = "Alerts you of the cone direction if the portal opened."
+L.Settings_Rockgrove_Bahsei_Portal_Number          = "Flame-Herald Bahsei HM: Portal number (beta)"
+L.Settings_Rockgrove_Bahsei_Portal_Number_TT       = "Tells you the number of portal being opened."
 L.Settings_Rockgrove_Xalvakka_Unstable_Charge      = "Xalvakka HM: Unstable charge (staying on blob)"
 L.Settings_Rockgrove_Xalvakka_Unstable_Charge_TT   = "Alerts you when you're staying on blob. It's not healthy!"
 
@@ -635,6 +638,7 @@ L.Alerts_Rockgrove_Embrace_Of_Death                = "You're cursed by |c0A929BE
 L.Alerts_Rockgrove_Embrace_Of_Death_Other          = "|cFF0000<<!aC:1>>|r cursed by |c0A929BEmbrace of Death|r! Explosion in"
 L.Alerts_Rockgrove_Bahsei_Cone_Direction_Clockwise = "-> Move |cF48020clockwise|r ->"
 L.Alerts_Rockgrove_Bahsei_Cone_Direction_CounterCW = "<- Move |c15FFC2counterclockwise|r <-"
+L.Alerts_Rockgrove_Bahsei_Portal_Number            = "Portal #<<1>>"
 L.Alerts_Rockgrove_Xalvakka_Unstable_Charge        = "Move away from |c008C22blob|r!"
 
 
@@ -684,6 +688,26 @@ L.Alerts_DreadsailReef_ReefHeart_Failure           = "Reef Heart #|cFF0000<<1>>|
 L.Alerts_DreadsailReef_ReefHeart_Failure_Unknown   = "Reef Heart |cFF0000empowered|r. You're doomed!"
 L.Alerts_DreadsailReef_Rapid_Deluge                = "You got |c1CA3ECRapid Deluge|r! You should be swimming in"
 L.Alerts_DreadsailReef_Rapid_Deluge_Other          = "|cFF0000<<!aC:1>>|r got |c1CA3ECRapid Deluge|r! Swim in"
+
+
+--------------------------------
+------   SANITY'S EDGE     -----
+--------------------------------
+L.Settings_SanityEdge_Header                       = "Sanity's Edge"
+-- Settings
+L.Settings_SanityEdge_Chimera_Sunburst             = "Chimera: Sunburst"
+L.Settings_SanityEdge_Chimera_Sunburst_TT          = "Alerts you Chimera casts Sunburst on the group during its Inferno attack. Move away from the boss, and block or dodge it."
+L.Settings_SanityEdge_Ansuul_Sunburst              = "Ansuul: Sunburst"
+L.Settings_SanityEdge_Ansuul_Sunburst_TT           = "Alerts you when Ansuul casts Sunburst on player. Target player should move away from the group. Keep moving, don't block or dodge it."
+L.Settings_SanityEdge_Ansuul_Poisoned_Mind         = "Ansuul: Poisoned Mind"
+L.Settings_SanityEdge_Ansuul_Poisoned_Mind_TT      = "Alerts you when Ansuul casts Poisoned Mind. Stay in group. HM: don't stack with other player who has this mechanic."
+
+-- Alerts
+L.Alerts_SanityEdge_Chimera_Sunburst               = "|cff9500Meteor|r at you!"
+L.Alerts_SanityEdge_Ansuul_Sunburst                = "|c00ddffSunburst|r at you!"
+L.Alerts_SanityEdge_Ansuul_Sunburst_Other          = "|c00ddffSunburst|r at <<!aC:1>>|r"
+L.Alerts_SanityEdge_Ansuul_Poisoned_Mind           = "|c008C22Poison|r at you!"
+L.Alerts_SanityEdge_Ansuul_Poisoned_Mind_Other     = "|c008C22Poison|r at <<!aC:1>>|r"
 
 
 --------------------------------
