@@ -5,7 +5,7 @@
 ## AddOnVersion: 230
 ## APIVersion: 101046 101047
 ## SavedVariables: RNVars RN_DEBUG_LOG
-## DependsOn: LibAddonMenu-2.0>=36 LibUnits2>=102 LibCSA>=210
+## DependsOn: LibAddonMenu-2.0>=36 LibUnits2>=101 LibCSA>=210
 ## OptionalDependsOn: LibGroupSocket>=13
 
 UltimateHandler.lua
