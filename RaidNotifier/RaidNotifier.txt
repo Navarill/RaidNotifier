@@ -6,7 +6,7 @@
 ## APIVersion: 101050 101051
 ## SavedVariables: RNVars RN_DEBUG_LOG
 ## DependsOn: LibAddonMenu-2.0>=43 LibUnits2>=102 LibCSA>=210
-## OptionalDependsOn: LibGroupSocket>=13
+## OptionalDependsOn: LibGroupSocket
 
 UltimateHandler.lua
 TrialAetherianArchive.lua
